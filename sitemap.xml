@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://hurst.systems/</loc>
+  <lastmod>2018-10-25T03:43:16+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://hurst.systems/blog/</loc>
+  <lastmod>2018-10-25T03:43:16+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hurst.systems/about/</loc>
+  <lastmod>2018-10-25T03:43:16+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hurst.systems/blog/index.html</loc>
+  <lastmod>2018-10-25T03:43:16+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hurst.systems/blog/What-is-Plaster/</loc>
+  <lastmod>2018-10-25T03:43:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://hurst.systems/blog/PowerShell-Pester-Notes/</loc>
+  <lastmod>2018-10-25T03:43:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://hurst.systems/blog/PowerShell-Error-Handling/</loc>
+  <lastmod>2018-10-25T03:43:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://hurst.systems/blog/PowerShell-Advanced-Functions/</loc>
+  <lastmod>2018-10-25T03:43:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://hurst.systems/blog/PowerShell-Adding-Whatif-and-Confirm/</loc>
+  <lastmod>2018-10-25T03:43:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://hurst.systems/blog/PowerShell-Notes/</loc>
+  <lastmod>2018-10-25T03:43:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://hurst.systems/blog/Dark-Theme-Font-Changes/</loc>
+  <lastmod>2018-10-25T03:43:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://hurst.systems/blog/Dark-Theme-Setting-Changes/</loc>
+  <lastmod>2018-10-25T03:43:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://hurst.systems/blog/TwitterCards-GitHub-Ruby-Jekyll/</loc>
+  <lastmod>2018-10-25T03:43:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://hurst.systems/blog/Array-of-SunShine/</loc>
+  <lastmod>2018-10-25T03:43:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://hurst.systems/blog/The-Adventure-Begins/</loc>
+  <lastmod>2018-10-25T03:43:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
