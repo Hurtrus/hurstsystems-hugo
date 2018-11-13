@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Hurst Systems</title>
+    <link>https://hurst.systems/tags/</link>
+    <description>Recent content in Tags on Hurst Systems</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 12 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hurst.systems/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Blog</title>
+      <link>https://hurst.systems/tags/blog/</link>
+      <pubDate>Thu, 12 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://hurst.systems/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Powershell</title>
+      <link>https://hurst.systems/tags/powershell/</link>
+      <pubDate>Tue, 23 Oct 2018 10:29:23 -0500</pubDate>
+      
+      <guid>https://hurst.systems/tags/powershell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Twitter</title>
+      <link>https://hurst.systems/tags/twitter/</link>
+      <pubDate>Thu, 12 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://hurst.systems/tags/twitter/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

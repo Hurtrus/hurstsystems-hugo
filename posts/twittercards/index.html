@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<title>
+	Add Twitter Cards to Blog Tweets
+</title><style>
+body {
+	display: block;
+	--colorBG: "#40e0d0, #ff8c00, #ff0080";
+		background-image: var(--bgImage) !important;
+	
+}
+
+body, body.pushable {
+	background-repeat: no-repeat;
+  	background-attachment: fixed;
+  	background-size: cover !important;
+}
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="author" content="Scott Hurst" />
+	<meta name="description" content="I&amp;rsquo;m really late to the blog game, and never really did much but lurk on Twitter. So when I started to blog, and then promoted the posts on Twitter, I noticed it was just an ugly URL link. It didn&amp;rsquo;t stand out at all, in fact it was&amp;hellip; boring&amp;hellip; and this was BEFORE you got to my rambling. So how do all these Tweets end up with such pretty pictures attached to them?" />
+<meta name="generator" content="Hugo 0.51" />
+
+<link rel="shortcut icon" href="/img/favicon.ico">
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+<style>
+body.pushable {
+	display: block;
+		background-image: var(--bgImage) !important;
+	 ;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="/css/site.css"><link rel="stylesheet" type="text/css" href="/css/highlight.css">
+<script>
+	var colorBG =  null 
+	var enabledPost =  false 
+	var isMobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) )
+	console.log("The client device is a "+(isMobile?"mobile":"PC")+".")
+</script>
+</head>
+<body><script>
+var prevBgIndex = 0;
+var bodyBgSwitchIndex = 0;
+		var bgImage = "url(" + "/img/postImages/pwsh.jpeg" + ")";
+	
+	console.log("Current background: " + bgImage.substring(bgImage.indexOf("bg"), bgImage.length));
+	document.body.style.setProperty('--blurEff', null );
+	document.body.style.setProperty('--bgImage', bgImage);
+
+	function getRandomInt(min, max) {
+	  min = Math.ceil(min);
+	  max = Math.floor(max);
+	  var random;
+	  while (1) {
+	    random = Math.floor(Math.random() * (max - min)) + min;
+	    if (random !== prevBgIndex) {
+	      prevBgIndex = random;
+	      break;
+	    }
+	  }
+	  return random;
+	}
+
+	function connect(arr) {
+	  var str = '';
+	  for (var i = 0; i < arr.length; i++) {
+	    if (i !== arr.length - 1) {
+	      str += arr[i] + ', ';
+	    } else {
+	      str += arr[i];
+	    }
+	  }
+	  return str;
+	}
+</script><div class="blur-overlay"></div><div id="sidebar" class="ui sidebar inverted vertical menu">
+	<section id="author" class="ui top attached center aligned inverted segment"><div class="ui small circular image">
+		<img src="/img/Profile/Scott_Hurst_Systems.png">
+</div>
+<h3 class="ui header">Scott Hurst
+	<div class="sub header">Server Engineer, PowerShell Enthusiast, Gamer, wannabe programmer.</div>
+</h3>
+</section><section class="ui attached center aligned inverted segment sidebar-dream-tags">
+
+	<a class="ui label red " href="/tags/blog" title="blog">blog</a>
+
+	<a class="ui label olive " href="/tags/powershell" title="powershell">powershell</a>
+
+	<a class="ui label olive " href="/tags/twitter" title="twitter">twitter</a>
+
+</section>
+	<section class="ui attached inverted segment sidebar-dream-categories both flexbox">
+		<div class="ui inverted accordion">
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/powershell">powershell</a>
+</div>
+<div class="content">
+
+	<a class="item" href="https://hurst.systems/posts/powershell-adding-whatif-and-confirm/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>PowerShell - Adding WhatIf and Confirm</p>
+		</div>
+	</a>
+
+	<a class="item" href="https://hurst.systems/posts/powershell-error-handling/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>PowerShell - Error Handling</p>
+		</div>
+	</a>
+
+	<a class="item" href="https://hurst.systems/posts/powershell-advanced-functions/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>PowerShell - Advanced Functions</p>
+		</div>
+	</a>
+
+	<a class="item" href="https://hurst.systems/posts/powershell-notes/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>PowerShell Notes</p>
+		</div>
+	</a>
+
+	<a class="item" href="https://hurst.systems/posts/powershell-pester-notes/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>PowerShell - Pester Notes</p>
+		</div>
+	</a>
+
+	<a class="item" href="https://hurst.systems/posts/the-adventure-begins/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>The Adventure Begins</p>
+		</div>
+	</a>
+
+</div>
+
+</div>
+	</section>
+	
+	<section id="footer" class="ui bottom attached center aligned inverted segment">
+
+<p>© 2018 Hurst Systems</p>
+
+
+
+<p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> </p></section>
+</div>
+<div class="pusher">
+		<div class="flipper">
+			<div class="front">
+	
+	<nav class="ui top secondary menu bar">
+	<div class="item">
+		<i class="inverted big link bullseye icon dream-flip-toggle" title="About Me"></i>
+	</div>
+<div class="item">
+			<a href="/">
+				<i class="inverted big link home icon" title="Home"></i>
+			</a>
+		</div>
+	<div class="item">
+			<a href="/posts">
+				<i class="inverted big link archive icon" title="Archive"></i>
+			</a>
+		</div>
+	
+	<div class="item">
+			<a href="/tags">
+				<i class="inverted big link tags icon" title="All Tags"></i>
+			</a>
+		</div>
+	<div class="item">
+			<a href="/categories">
+				<i class="inverted big link cubes icon" title="All Categories"></i>
+			</a>
+    	</div>
+	
+	<div class="ui container tablet computer only grid">
+		<div class="item" onClick="$('.ui.sidebar').sidebar('setting', 'transition', 'overlay').sidebar('toggle');">
+			<i class="inverted big link sidebar icon" title="Show Sidebar"></i>
+		</div>
+	</div>
+	
+
+	
+	<div class="item right">
+		<a href="/posts/index.xml">
+			<i class="inverted big link rss icon" title="RSS Feed"></i>
+		</a>
+	</div>
+	
+</nav>
+
+
+<div class="ui centered grid">
+	<div class="sixteen wide mobile only column"><div class="ui inverted accordion">
+	<div id="header" class="ui inverted segment column box">
+		<header id="author" class="ui top attached center aligned inverted segment"><div class="ui small circular image">
+		<img src="/img/Profile/Scott_Hurst_Systems.png">
+</div>
+<h3 class="ui header">Scott Hurst
+	<div class="sub header">Server Engineer, PowerShell Enthusiast, Gamer, wannabe programmer.</div>
+</h3>
+</header>
+		<div class=" title header-title"><div id="tag-category-pop" class="ui red right corner label">
+				<i class="hand point icon down"title="Click this to pop tags and categories"></i>
+			</div></div>
+		<div id="tag-category" class=" content"><section class="ui attached center aligned inverted segment dream-tags none flexbox">
+
+	<a class="ui label orange " href="/tags/blog" title="blog">blog</a>
+
+	<a class="ui label purple " href="/tags/powershell" title="powershell">powershell</a>
+
+	<a class="ui label pink " href="/tags/twitter" title="twitter">twitter</a>
+
+</section><section class="ui attached inverted segment dream-categories both flexbox">
+				<div class="inverted accordion">
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/powershell">powershell</a>
+</div>
+<div class="content">
+
+	<a class="item" href="https://hurst.systems/posts/powershell-adding-whatif-and-confirm/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>PowerShell - Adding WhatIf and Confirm</p>
+		</div>
+	</a>
+
+	<a class="item" href="https://hurst.systems/posts/powershell-error-handling/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>PowerShell - Error Handling</p>
+		</div>
+	</a>
+
+	<a class="item" href="https://hurst.systems/posts/powershell-advanced-functions/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>PowerShell - Advanced Functions</p>
+		</div>
+	</a>
+
+	<a class="item" href="https://hurst.systems/posts/powershell-notes/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>PowerShell Notes</p>
+		</div>
+	</a>
+
+	<a class="item" href="https://hurst.systems/posts/powershell-pester-notes/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>PowerShell - Pester Notes</p>
+		</div>
+	</a>
+
+	<a class="item" href="https://hurst.systems/posts/the-adventure-begins/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>The Adventure Begins</p>
+		</div>
+	</a>
+
+</div>
+
+</div>
+			</section></div>
+		<footer class="ui bottom attached center aligned inverted segment">
+
+<p>© 2018 Hurst Systems</p>
+
+
+
+<p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> </p></footer>
+	</div>
+</div>
+</div>
+	<div class="sixteen wide mobile fifteen wide tablet twelve wide computer column post-list">
+		<section class="ui secondary top attached black segment post-head">
+			<h1 class="post-title">
+				Add Twitter Cards to Blog Tweets
+			</h1>
+			<div class="sub header">
+					<div><span><i class="calendar outline icon"></i>Jul 12, 2018</span></div><div><span class="disqusComment"><i class="comment outline icon"></i><a href="https://hurst.systems/posts/twittercards/#disqus_thread" class="disqus-comment-count" data-disqus-identifier="a486cb0ef7305fb7e3db87705b7908ab"></a></span></div>
+					<div><span><i class="clock outline icon"></i>2 min read</span></div>
+					<div><span><i class="angle double up icon"></i>Last updated on Jul 12, 2018</span></div>
+			</div>
+			<hr>
+			<article class="post-content twemoji">
+				<p><head>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@The_Scott_Hurst">
+<meta name="twitter:creator" content="@The_Scott_Hurst">
+<meta name="twitter:title" content="Twitter Cards - Making your blog post stand out.">
+<meta name="twitter:description" content="Learning about Twitter Cards - How to make Twitter posts of your blog stand out">
+<meta name="twitter:image" content="http://www.hurst.systems\assets\images\BlogPostImages\jekyll_github.png">
+</head>
+I&rsquo;m really late to the blog game, and never really did much but lurk on Twitter. So when I started to blog, and then promoted the posts on Twitter, I noticed it was just an ugly URL link. It didn&rsquo;t stand out at all, in fact it was&hellip; boring&hellip; and this was BEFORE you got to my rambling. So how do all these Tweets end up with such pretty pictures attached to them??</p>
+
+<p>I actually came across the answer to my question by accident.  I was reading about the whole &ldquo;hosting your blog on GitHub.io&rdquo; and Jekyll/Ruby thing that all the cool kids are doing these days (I&rsquo;ll write more about this in a later blog post)&hellip; (also&hellip; I LOVE Jekyll/Ruby/GitHub - so much lost sleep but in a good way) and I stumble across a Theme where the user had embedded a list of his Twitter posts within his blog. I was unable to find his code, but I was able to find more information about how this is accomplished on Twitter&rsquo;s site, on a page called this is from <a class="reference external" href="https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards">About Twitter Cards</a></p>
+
+<p>Once you&rsquo;ve configured the HEAD of your post with the metadata you can test to make sure it works and get a preview of what the card looks like by using the <a class="reference external" href="https://cards-dev.twitter.com/validator">Card Validator</a></p>
+
+<p>So lets get into this, shall we?</p>
+
+<p>Optimize Tweets with Cards</p>
+
+<p><h1>About Twitter Cards</h1>
+With Twitter Cards, you can attach rich photos, videos and media experiences to Tweets, helping to drive traffic to your website. Simply add a few lines of markup to your webpage, and users who Tweet links to your content will have a “Card” added to the Tweet that’s visible to their followers.</p>
+
+<p><h3>Drive engagement from your Tweets<a name="drive-engagement-from-your-tweets"></a></h3>
+<p>The different Card types each have a beautiful consumption experience built for Twitter’s web and mobile clients:</p>
+<ul>
+<li><a class="reference external" href="https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/summary-card-with-large-image">Summary Card</a>: Title, description, and thumbnail.</li>
+<li><a class="reference external" href="/en/docs/tweets/optimize-with-cards/overview/summary-card-with-large-image.html">Summary Card with Large Image</a>: Similar to the Summary Card, but with a prominently-featured image.</li>
+<li><a class="reference external" href="https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/app-card">App Card</a>: A Card with a direct download to a mobile app.</li>
+<li><a class="reference external" href="https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/player-card">Player Card</a>: A Card that can display video/audio/media.</li>
+</ul>
+<p>To learn more about how the Card meta tags and web crawler work, check out the <a href="/cards/getting-started">Getting Started Guide</a>.</p>
+<h3>Drive app downloads from your Tweets<a name="drive-app-downloads-from-your-tweets"></a></h3>
+<p>In addition to displaying content in a more engaging way, Cards can also drive downloads of mobile apps, and even link directly into installed applications. For more information, see <a class="reference external" href="/cards/mobile">Cards for Mobile Developers</a>.</p></p>
+
+<p>this is from <a herf="https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards">About Twitter Cards</a> I am just testing the functionality.</p>
+
+			</article>
+		</section>
+		<section class="ui secondary attached segment dream-tags">
+
+	<a class="ui label green " href="/tags/blog" title="blog">blog</a>
+
+	<a class="ui label blue " href="/tags/powershell" title="powershell">powershell</a>
+
+	<a class="ui label olive " href="/tags/twitter" title="twitter">twitter</a>
+
+
+		</section><section class="ui secondary  attached segment share row box"><div class="author">
+	<img class="avatar" src="/img/Profile/Scott_Hurst_Systems.png">
+	
+</div>
+<div class="info grow flexbox"><a href="https://twitter.com/The_Scott_Hurst">
+	
+	<p class="name">Scott Hurst</p></a>
+	
+	<p class="desc">Server Engineer, PowerShell Enthusiast, Gamer, wannabe programmer.</p>
+</div>
+<section class="buttons row box">
+	<div class="facebook none flexbox" href="#" onclick="window.open(
+			'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+			'facebook-share-dialog',
+			'width=626,height=436'); return false;">
+		<button class="ui facebook button"><i class="facebook icon"></i>Share</button>
+	</div>
+	<div class="twitter none flexbox" onclick="window.open('https://twitter.com/intent/tweet?text=Read &quot;Add Twitter Cards to Blog Tweets &quot; by @The_Scott_Hurst https:\/\/hurst.systems\/posts\/twittercards\/','_self')">
+		<button class="ui twitter button"><i class="twitter icon"></i>Tweet</button>
+	</div>
+</section>
+</section>
+		<section class="ui secondary attached segment copyright">
+			
+
+		</section>
+		<div class="ui secondary bottom attached stacked segment disqus"><div id="disqus_thread"></div>
+<script>
+	var disqus_config = function () {
+		this.page.url = 'https:\/\/hurst.systems\/posts\/twittercards\/';
+		this.page.identifier = 'a486cb0ef7305fb7e3db87705b7908ab';
+	};
+	(function() {
+   	var d = document, s = d.createElement('script');
+   	s.src = 'https://' + 'hurst-systems' + '.disqus.com/embed.js';
+   	s.setAttribute('data-timestamp', +new Date());
+   	(d.head || d.body).appendChild(s);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+		
+	</div>
+</div>
+
+			</div>
+			<div class="back">
+<nav class="ui top secondary menu bar">
+	<div class="item">
+		<i class="inverted big link bullseye icon dream-flip-toggle" title="About Me"></i>
+	</div>
+
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+	
+	
+	
+		
+		
+		<div class="item">
+			<a href="https://github.com/Hurtrus" target="	_blank">
+				<i id="ico" class="inverted big link github icon" title="GitHub"></i>
+			</a>
+		</div>
+		
+	
+		
+		
+		<div class="item">
+			<a href="mailto:scott&#43;blogposts@hurst.systems" target="	_blank">
+				<i id="ico" class="inverted big link mail icon" title="Email"></i>
+			</a>
+		</div>
+		
+	
+		
+		
+		<div class="item">
+			<a href="https://twitter.com/The_Scott_Hurst" target="	_blank">
+				<i id="ico" class="inverted big link twitter icon" title="Twitter"></i>
+			</a>
+		</div>
+		
+	
+		
+		
+	
+		
+		
+	
+		
+		
+		<div class="item">
+			<a href="https://www.linkedin.com/in/brandonhurst" target="	_blank">
+				<i id="ico" class="inverted big link linkedin icon" title="LinkedIn"></i>
+			</a>
+		</div>
+		
+	
+		
+		
+	
+		
+		
+	
+		
+		
+	
+
+	
+	<div class="item right">
+		<a href="/posts/index.xml">
+			<i class="inverted big link rss icon" title="RSS Feed"></i>
+		</a>
+	</div>
+	
+</nav>
+
+<div class="ui centered grid about">
+	<div class="sixteen wide mobile fifteen wide tablet fifteen wide computer column about">
+		<section class="ui stacked segments">
+			<div class="ui inverted segment">
+				<article class="twemoji"><h1>Just the typical about me page</h1>
+
+<hr />
+
+<p><a href="https://www.techtronit.com">
+  <img src="/img/postImages/powershell_org_Verified.png" alt="HTML tutorial" style="border:0;">
+</a><br></p>
+
+<p>Published videos
+    <p>List of videos I have created: <a href="https://www.techsnips.io/contributors/scott-hurst/" rel="noopener noreferrer" target="_blank">TechSnips</a><br></p></p>
+
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/W7bjX55FLCk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br></p>
+
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/j84Xd5nxCZ0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br></p>
+
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/FUOeyxwePoY?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br></p>
+
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/ZfLjTzwpdUA?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br></p>
+
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/ZqmI7NfqXOU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br></p>
+
+<p>Published Blog Posts on other websites:<br>
+<a href="https://blog.techsnips.io/how-to-managed-distributed-file-system-dfs-links-with-powershell/" rel="noopener noreferrer" target="_blank">How to Managed Distributed File System (DFS) Links with PowerShell</a></p>
+
+<p>Find out more about Scott:<br>
+    <a href="https://twitter.com/The_Scott_Hurst" class="btn btn--twitter">Twitter</a><br>
+    <a href="https://www.linkedin.com/in/brandonhurst" class="btn btn--linkedin">LinkedIn</a><br>
+    <a href="https://github.com/hurtrus" class="btn btn--light-outline">GitHub</a><br>
+    <a href="mailto:scott+ghioblog@hurst.systems" class="btn btn--danger">Email</a><br></p>
+</article>
+			</div>
+		</section>
+	</div>
+</div>
+</div>
+		</div>
+	</div><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/site.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script><script src="https://twemoji.maxcdn.com/2/twemoji.min.js?2.6"></script>
+
+
+	<script>
+		window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+		ga('create', 'UA-121996036-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+	<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script id="dsq-count-scr" src="//hurst-systems.disqus.com/count.js" async></script>
+
+
+<script>
+	(function () {
+	  console.log("Twemoji up and making stuff colourful!");
+	  for (var b = document.getElementsByClassName("twemoji"), a = 0; a < b.length; a++) {
+		twemoji.parse(b[a]);
+	  }
+	})();
+</script>
+
+</body>
+</html>

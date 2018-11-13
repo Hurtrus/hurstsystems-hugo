@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<title>
+	PowerShell - Error Handling
+</title><style>
+body {
+	display: block;
+	--colorBG: "#40e0d0, #ff8c00, #ff0080";
+		background-image: var(--bgImage) !important;
+	
+}
+
+body, body.pushable {
+	background-repeat: no-repeat;
+  	background-attachment: fixed;
+  	background-size: cover !important;
+}
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="author" content="Scott Hurst" />
+	<meta name="description" content="Using Try Catch and Finally to perform error handling for PowerShell" />
+<meta name="generator" content="Hugo 0.51" />
+
+<link rel="shortcut icon" href="/img/favicon.ico">
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+<style>
+body.pushable {
+	display: block;
+		background-image: var(--bgImage) !important;
+	 ;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="/css/site.css"><link rel="stylesheet" type="text/css" href="/css/highlight.css">
+<script>
+	var colorBG =  null 
+	var enabledPost =  false 
+	var isMobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) )
+	console.log("The client device is a "+(isMobile?"mobile":"PC")+".")
+</script>
+</head>
+<body><script>
+var prevBgIndex = 0;
+var bodyBgSwitchIndex = 0;
+		var bgImage = "url(" + "/img/postImages/pwsh.jpeg" + ")";
+	
+	console.log("Current background: " + bgImage.substring(bgImage.indexOf("bg"), bgImage.length));
+	document.body.style.setProperty('--blurEff', null );
+	document.body.style.setProperty('--bgImage', bgImage);
+
+	function getRandomInt(min, max) {
+	  min = Math.ceil(min);
+	  max = Math.floor(max);
+	  var random;
+	  while (1) {
+	    random = Math.floor(Math.random() * (max - min)) + min;
+	    if (random !== prevBgIndex) {
+	      prevBgIndex = random;
+	      break;
+	    }
+	  }
+	  return random;
+	}
+
+	function connect(arr) {
+	  var str = '';
+	  for (var i = 0; i < arr.length; i++) {
+	    if (i !== arr.length - 1) {
+	      str += arr[i] + ', ';
+	    } else {
+	      str += arr[i];
+	    }
+	  }
+	  return str;
+	}
+</script><div class="blur-overlay"></div><div id="sidebar" class="ui sidebar inverted vertical menu">
+	<section id="author" class="ui top attached center aligned inverted segment"><div class="ui small circular image">
+		<img src="/img/Profile/Scott_Hurst_Systems.png">
+</div>
+<h3 class="ui header">Scott Hurst
+	<div class="sub header">Server Engineer, PowerShell Enthusiast, Gamer, wannabe programmer.</div>
+</h3>
+</section><section class="ui attached center aligned inverted segment sidebar-dream-tags">
+
+	<a class="ui label brown " href="/tags/blog" title="blog">blog</a>
+
+	<a class="ui label pink " href="/tags/powershell" title="powershell">powershell</a>
+
+	<a class="ui label brown " href="/tags/twitter" title="twitter">twitter</a>
+
+</section>
+	<section class="ui attached inverted segment sidebar-dream-categories both flexbox">
+		<div class="ui inverted accordion">
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/powershell">powershell</a>
+</div>
+<div class="content">
+
+	<a class="item" href="https://hurst.systems/posts/powershell-adding-whatif-and-confirm/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>PowerShell - Adding WhatIf and Confirm</p>
+		</div>
+	</a>
+
+	<a class="item" href="https://hurst.systems/posts/powershell-error-handling/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>PowerShell - Error Handling</p>
+		</div>
+	</a>
+
+	<a class="item" href="https://hurst.systems/posts/powershell-advanced-functions/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>PowerShell - Advanced Functions</p>
+		</div>
+	</a>
+
+	<a class="item" href="https://hurst.systems/posts/powershell-notes/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>PowerShell Notes</p>
+		</div>
+	</a>
+
+	<a class="item" href="https://hurst.systems/posts/powershell-pester-notes/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>PowerShell - Pester Notes</p>
+		</div>
+	</a>
+
+	<a class="item" href="https://hurst.systems/posts/the-adventure-begins/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>The Adventure Begins</p>
+		</div>
+	</a>
+
+</div>
+
+</div>
+	</section>
+	
+	<section id="footer" class="ui bottom attached center aligned inverted segment">
+
+<p>© 2018 Hurst Systems</p>
+
+
+
+<p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> </p></section>
+</div>
+<div class="pusher">
+		<div class="flipper">
+			<div class="front">
+	
+	<nav class="ui top secondary menu bar">
+	<div class="item">
+		<i class="inverted big link bullseye icon dream-flip-toggle" title="About Me"></i>
+	</div>
+<div class="item">
+			<a href="/">
+				<i class="inverted big link home icon" title="Home"></i>
+			</a>
+		</div>
+	<div class="item">
+			<a href="/posts">
+				<i class="inverted big link archive icon" title="Archive"></i>
+			</a>
+		</div>
+	
+	<div class="item">
+			<a href="/tags">
+				<i class="inverted big link tags icon" title="All Tags"></i>
+			</a>
+		</div>
+	<div class="item">
+			<a href="/categories">
+				<i class="inverted big link cubes icon" title="All Categories"></i>
+			</a>
+    	</div>
+	
+	<div class="ui container tablet computer only grid">
+		<div class="item" onClick="$('.ui.sidebar').sidebar('setting', 'transition', 'overlay').sidebar('toggle');">
+			<i class="inverted big link sidebar icon" title="Show Sidebar"></i>
+		</div>
+	</div>
+	
+
+	
+	<div class="item right">
+		<a href="/posts/index.xml">
+			<i class="inverted big link rss icon" title="RSS Feed"></i>
+		</a>
+	</div>
+	
+</nav>
+
+
+<div class="ui centered grid">
+	<div class="sixteen wide mobile only column"><div class="ui inverted accordion">
+	<div id="header" class="ui inverted segment column box">
+		<header id="author" class="ui top attached center aligned inverted segment"><div class="ui small circular image">
+		<img src="/img/Profile/Scott_Hurst_Systems.png">
+</div>
+<h3 class="ui header">Scott Hurst
+	<div class="sub header">Server Engineer, PowerShell Enthusiast, Gamer, wannabe programmer.</div>
+</h3>
+</header>
+		<div class=" title header-title"><div id="tag-category-pop" class="ui red right corner label">
+				<i class="hand point icon down"title="Click this to pop tags and categories"></i>
+			</div></div>
+		<div id="tag-category" class=" content"><section class="ui attached center aligned inverted segment dream-tags none flexbox">
+
+	<a class="ui label purple " href="/tags/blog" title="blog">blog</a>
+
+	<a class="ui label orange " href="/tags/powershell" title="powershell">powershell</a>
+
+	<a class="ui label red " href="/tags/twitter" title="twitter">twitter</a>
+
+</section><section class="ui attached inverted segment dream-categories both flexbox">
+				<div class="inverted accordion">
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/powershell">powershell</a>
+</div>
+<div class="content">
+
+	<a class="item" href="https://hurst.systems/posts/powershell-adding-whatif-and-confirm/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>PowerShell - Adding WhatIf and Confirm</p>
+		</div>
+	</a>
+
+	<a class="item" href="https://hurst.systems/posts/powershell-error-handling/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>PowerShell - Error Handling</p>
+		</div>
+	</a>
+
+	<a class="item" href="https://hurst.systems/posts/powershell-advanced-functions/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>PowerShell - Advanced Functions</p>
+		</div>
+	</a>
+
+	<a class="item" href="https://hurst.systems/posts/powershell-notes/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>PowerShell Notes</p>
+		</div>
+	</a>
+
+	<a class="item" href="https://hurst.systems/posts/powershell-pester-notes/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>PowerShell - Pester Notes</p>
+		</div>
+	</a>
+
+	<a class="item" href="https://hurst.systems/posts/the-adventure-begins/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>The Adventure Begins</p>
+		</div>
+	</a>
+
+</div>
+
+</div>
+			</section></div>
+		<footer class="ui bottom attached center aligned inverted segment">
+
+<p>© 2018 Hurst Systems</p>
+
+
+
+<p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> </p></footer>
+	</div>
+</div>
+</div>
+	<div class="sixteen wide mobile fifteen wide tablet twelve wide computer column post-list">
+		<section class="ui secondary top attached black segment post-head">
+			<h1 class="post-title">
+				PowerShell - Error Handling
+			</h1>
+			<div class="sub header">
+					<div><span><i class="calendar outline icon"></i>Oct 3, 2018</span></div><div><span class="disqusComment"><i class="comment outline icon"></i><a href="https://hurst.systems/posts/powershell-error-handling/#disqus_thread" class="disqus-comment-count" data-disqus-identifier="8b2047eaa299fef5ea1513952f4d71d6"></a></span></div>
+					<div><span><i class="clock outline icon"></i>3 min read</span></div>
+					<div><span><i class="angle double up icon"></i>Last updated on Oct 3, 2018</span></div>
+			</div>
+			<hr><div class="toc"><nav id="TableOfContents">
+<ul>
+<li><a href="#powershell-error-handling">PowerShell - Error Handling</a>
+<ul>
+<li><a href="#try">Try</a></li>
+<li><a href="#catch">Catch</a></li>
+<li><a href="#catching-specific-exceptions">Catching Specific Exceptions</a></li>
+<li><a href="#putting-the-error-into-action">Putting the Error into Action</a>
+<ul>
+<li><a href="#difference-between-erroraction-and-erroractionpreference">Difference between ErrorAction and $ErrorActionPreference</a></li>
+<li><a href="#why-you-would-need-to-change-the-erroractionpreference">Why you would need to change the $ErrorActionPreference</a></li>
+<li><a href="#using-that-finally-finally">Using that Finally finally</a></li>
+</ul></li>
+<li><a href="#throw">Throw</a></li>
+<li><a href="#additional-reading-resources">Additional Reading Resources:</a></li>
+</ul></li>
+</ul>
+</nav></div>
+			
+			<article class="post-content twemoji">
+				
+
+<h1 id="powershell-error-handling">PowerShell - Error Handling&nbsp;<a class="anchor" href="#powershell-error-handling"><i class="small linkify icon"></i></a> </h1>
+
+<p>Try Catch and Finally</p>
+
+<h2 id="try">Try&nbsp;<a class="anchor" href="#try"><i class="small linkify icon"></i></a> </h2>
+
+<p>When we need to watch a block of our code for errors, our new best friend is the <code>try</code> statement. Ever dillagent, <code>try</code> knows the danger that looms and is looking out for you when a &ldquo;terminating&rdquo; error occurs.<br />
+We can also tell <code>try</code> to be on the lookout for other types of errors, those errrors that don&rsquo;t stop the function in its tracks (also known as Non-Terminating), but may cause problems later in our code because this function was unable to be successfully executed.</p>
+
+<p>An example of a Non-Terminating error would be <code>Remove-Item</code> not being able to find the object, or <code>Get-AdUser</code> not being able to find the user in Active Directory. The error thrown by these issues won&rsquo;t stop the show, it will flood our pretty terminal with a river of red text, but the execution of code will march ever forward.</p>
+
+<p>To instuct our good friend <code>try</code> to grab Non-Terminating errors we need to use the <em><em>-ErrorAction</em></em> property and set it to <em><em>&lsquo;Stop&rsquo;</em></em> now this Non-Terminating error will behave in a similar manner as a Terminating error (<em>although it is still a Non-Terminating error</em>) and <code>try</code> will once again do it&rsquo;s job.</p>
+
+<h2 id="catch">Catch&nbsp;<a class="anchor" href="#catch"><i class="small linkify icon"></i></a> </h2>
+
+<h2 id="catching-specific-exceptions">Catching Specific Exceptions&nbsp;<a class="anchor" href="#catching-specific-exceptions"><i class="small linkify icon"></i></a> </h2>
+
+<p>When capturing an error and specifying an error in a catch, it only works with <em>Terminating</em> errors. Non-terminating errors cannot be <em>caught</em> in this manner.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="k">Try</span>
+<span class="p">{</span>
+    <span class="nv">$AuthorizedUsers</span><span class="p">=</span> <span class="nb">Get-Content</span> <span class="p">\\</span><span class="n">FileServer</span><span class="p">\</span><span class="n">RemoteShare</span><span class="p">\</span><span class="n">CoolListofStuff</span><span class="p">.</span><span class="n">txt</span> <span class="n">-ErrorAction</span> <span class="n">Stop</span>
+<span class="p">}</span>
+<span class="k">Catch</span> <span class="no">[System.OutOfMemoryException]</span>
+<span class="p">{</span>
+    <span class="nb">Restart-Computer</span> <span class="n">localhost</span>
+<span class="p">}</span>
+<span class="k">Catch</span>
+<span class="p">{</span>
+    <span class="nv">$ErrorMessage</span> <span class="p">=</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Exception</span><span class="p">.</span><span class="n">Message</span>
+    <span class="nv">$FailedItem</span> <span class="p">=</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Exception</span><span class="p">.</span><span class="n">ItemName</span>
+    <span class="nb">Send-MailMessage</span> <span class="n">-From</span> <span class="n">ExpensesBot</span><span class="nv">@MyCompany</span><span class="p">.</span><span class="n">Com</span> <span class="n">-To</span> <span class="n">WinAdmin</span><span class="nv">@MyCompany</span><span class="p">.</span><span class="n">Com</span> <span class="n">-Subject</span> <span class="s2">&#34;HR File Read Failed!&#34;</span> <span class="n">-SmtpServer</span> <span class="n">EXCH01</span><span class="p">.</span><span class="n">AD</span><span class="p">.</span><span class="n">MyCompany</span><span class="p">.</span><span class="n">Com</span> <span class="n">-Body</span> <span class="s2">&#34;We failed to read file $FailedItem. The error message was $ErrorMessage&#34;</span>
+    <span class="k">Break</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="putting-the-error-into-action">Putting the Error into Action&nbsp;<a class="anchor" href="#putting-the-error-into-action"><i class="small linkify icon"></i></a> </h2>
+
+<h3 id="difference-between-erroraction-and-erroractionpreference">Difference between ErrorAction and $ErrorActionPreference&nbsp;<a class="anchor" href="#difference-between-erroraction-and-erroractionpreference"><i class="small linkify icon"></i></a> </h3>
+
+<p><code>ErrorAction</code> is a different beast than <code>$ErrorActionPreference</code></p>
+
+<p>$ErrorActionPreference is a Preference Variable <a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-6">About Preference Variables</a>
+This preference variable enable you to customize the behavior and how it affects the PowerShell operating environment and all commands run in the environment.</p>
+
+<p>ErrorAction is a Common Parameter <a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_commonparameters?view=powershell-6">About CommonParameters</a>
+This <em>common parameter</em> affects the behavior of the specific cmdlet it is used with, and the environment itself is left unchanged. It is used to override the preference for a single command.</p>
+
+<p>ErrorAction has the same valid values as the $ErrorActionPreference variable.</p>
+
+<p>Valid values for $ErrorActionPreference and ErrorAction
+ - Stop: Displays the error message and stops executing.
+ - Inquire: Displays the error message and asks you whether you want to continue.
+ - Continue: Displays the error message and continues (Default) executing.
+ - Suspend: Automatically suspends a workflow job to allow for further investigation. After investigation, the workflow can be resumed.
+ - SilentlyContinue: No effect. The error message is not displayed and execution continues without interruption.</p>
+
+<h3 id="why-you-would-need-to-change-the-erroractionpreference">Why you would need to change the $ErrorActionPreference&nbsp;<a class="anchor" href="#why-you-would-need-to-change-the-erroractionpreference"><i class="small linkify icon"></i></a> </h3>
+
+<p>What do you do when ErrorAction parameter isn&rsquo;t available (it happens in rare cases)?
+Well customize the $ErrorActionPreference of course!</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="c"># Here we capture the Original ErrorAction Preference settings</span>
+<span class="nv">$OriginalErrorActionPreference</span> <span class="p">=</span> <span class="nv">$ErrorActionPreference</span>
+
+<span class="k">function</span> <span class="n">MySpecialCaseFunction</span>
+<span class="p">{</span>
+  <span class="nv">$ErrorActionPreference</span> <span class="p">=</span> <span class="s1">&#39;Stop&#39;</span> <span class="c"># Change the preference to Stop</span>
+    <span class="k">try</span>
+    <span class="p">{</span>
+      <span class="no">[rare.case]</span><span class="p">::</span><span class="n">WhereErrorAction</span><span class="p">.</span><span class="n">DoesntWork</span>
+    <span class="p">}</span>
+    <span class="k">catch</span>
+    <span class="p">{</span>
+      <span class="k">Do</span> <span class="n">Something_Cool</span>
+    <span class="p">}</span>
+    <span class="k">finally</span>
+    <span class="p">{</span>
+      <span class="nv">$ErrorActionPreference</span> <span class="p">=</span> <span class="nv">$OriginalErrorActionPreference</span> <span class="c"># Set the preference back to original</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="using-that-finally-finally">Using that Finally finally&nbsp;<a class="anchor" href="#using-that-finally-finally"><i class="small linkify icon"></i></a> </h3>
+
+<p>Hey man&hellip; what was that <em>finally</em> thing in that example above?
+&ldquo;Finally&rdquo; executes regardless of the try being successful or not, so it is the perfect place to do some cleaning up.</p>
+
+<h2 id="throw">Throw&nbsp;<a class="anchor" href="#throw"><i class="small linkify icon"></i></a> </h2>
+
+<ul>
+<li>Why you would need to use Throw?</li>
+<li>Using the Throw keyword says that the error being thrown is a terminating error?</li>
+</ul>
+
+<h2 id="additional-reading-resources">Additional Reading Resources:&nbsp;<a class="anchor" href="#additional-reading-resources"><i class="small linkify icon"></i></a> </h2>
+
+<p><a href="https://www.vexasoft.com/blogs/powershell/7255220-powershell-tutorial-try-catch-finally-and-error-handling-in-powershell">Try-Catch-Finally in PowerShell</a></p>
+
+<p><a href="https://learn-powershell.net/2015/04/04/a-look-at-trycatch-in-powershell/">A Look at Try/Catch in PowerShell</a></p>
+
+			</article>
+		</section>
+		<section class="ui secondary attached segment dream-tags">
+
+	<a class="ui label violet " href="/tags/blog" title="blog">blog</a>
+
+	<a class="ui label blue " href="/tags/powershell" title="powershell">powershell</a>
+
+	<a class="ui label brown " href="/tags/twitter" title="twitter">twitter</a>
+
+
+		</section><section class="ui secondary  attached segment share row box"><div class="author">
+	<img class="avatar" src="/img/Profile/Scott_Hurst_Systems.png">
+	
+</div>
+<div class="info grow flexbox"><a href="https://twitter.com/The_Scott_Hurst">
+	
+	<p class="name">Scott Hurst</p></a>
+	
+	<p class="desc">Server Engineer, PowerShell Enthusiast, Gamer, wannabe programmer.</p>
+</div>
+<section class="buttons row box">
+	<div class="facebook none flexbox" href="#" onclick="window.open(
+			'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+			'facebook-share-dialog',
+			'width=626,height=436'); return false;">
+		<button class="ui facebook button"><i class="facebook icon"></i>Share</button>
+	</div>
+	<div class="twitter none flexbox" onclick="window.open('https://twitter.com/intent/tweet?text=Read &quot;PowerShell - Error Handling &quot; by @The_Scott_Hurst https:\/\/hurst.systems\/posts\/powershell-error-handling\/','_self')">
+		<button class="ui twitter button"><i class="twitter icon"></i>Tweet</button>
+	</div>
+</section>
+</section>
+		<section class="ui secondary attached segment copyright">
+			
+
+		</section>
+		<div class="ui secondary bottom attached stacked segment disqus"><div id="disqus_thread"></div>
+<script>
+	var disqus_config = function () {
+		this.page.url = 'https:\/\/hurst.systems\/posts\/powershell-error-handling\/';
+		this.page.identifier = '8b2047eaa299fef5ea1513952f4d71d6';
+	};
+	(function() {
+   	var d = document, s = d.createElement('script');
+   	s.src = 'https://' + 'hurst-systems' + '.disqus.com/embed.js';
+   	s.setAttribute('data-timestamp', +new Date());
+   	(d.head || d.body).appendChild(s);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+		
+	</div>
+</div>
+
+			</div>
+			<div class="back">
+<nav class="ui top secondary menu bar">
+	<div class="item">
+		<i class="inverted big link bullseye icon dream-flip-toggle" title="About Me"></i>
+	</div>
+
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+	
+	
+	
+		
+		
+		<div class="item">
+			<a href="https://github.com/Hurtrus" target="	_blank">
+				<i id="ico" class="inverted big link github icon" title="GitHub"></i>
+			</a>
+		</div>
+		
+	
+		
+		
+		<div class="item">
+			<a href="mailto:scott&#43;blogposts@hurst.systems" target="	_blank">
+				<i id="ico" class="inverted big link mail icon" title="Email"></i>
+			</a>
+		</div>
+		
+	
+		
+		
+		<div class="item">
+			<a href="https://twitter.com/The_Scott_Hurst" target="	_blank">
+				<i id="ico" class="inverted big link twitter icon" title="Twitter"></i>
+			</a>
+		</div>
+		
+	
+		
+		
+	
+		
+		
+	
+		
+		
+		<div class="item">
+			<a href="https://www.linkedin.com/in/brandonhurst" target="	_blank">
+				<i id="ico" class="inverted big link linkedin icon" title="LinkedIn"></i>
+			</a>
+		</div>
+		
+	
+		
+		
+	
+		
+		
+	
+		
+		
+	
+
+	
+	<div class="item right">
+		<a href="/posts/index.xml">
+			<i class="inverted big link rss icon" title="RSS Feed"></i>
+		</a>
+	</div>
+	
+</nav>
+
+<div class="ui centered grid about">
+	<div class="sixteen wide mobile fifteen wide tablet fifteen wide computer column about">
+		<section class="ui stacked segments">
+			<div class="ui inverted segment">
+				<article class="twemoji"><h1>Just the typical about me page</h1>
+
+<hr />
+
+<p><a href="https://www.techtronit.com">
+  <img src="/img/postImages/powershell_org_Verified.png" alt="HTML tutorial" style="border:0;">
+</a><br></p>
+
+<p>Published videos
+    <p>List of videos I have created: <a href="https://www.techsnips.io/contributors/scott-hurst/" rel="noopener noreferrer" target="_blank">TechSnips</a><br></p></p>
+
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/W7bjX55FLCk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br></p>
+
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/j84Xd5nxCZ0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br></p>
+
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/FUOeyxwePoY?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br></p>
+
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/ZfLjTzwpdUA?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br></p>
+
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/ZqmI7NfqXOU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br></p>
+
+<p>Published Blog Posts on other websites:<br>
+<a href="https://blog.techsnips.io/how-to-managed-distributed-file-system-dfs-links-with-powershell/" rel="noopener noreferrer" target="_blank">How to Managed Distributed File System (DFS) Links with PowerShell</a></p>
+
+<p>Find out more about Scott:<br>
+    <a href="https://twitter.com/The_Scott_Hurst" class="btn btn--twitter">Twitter</a><br>
+    <a href="https://www.linkedin.com/in/brandonhurst" class="btn btn--linkedin">LinkedIn</a><br>
+    <a href="https://github.com/hurtrus" class="btn btn--light-outline">GitHub</a><br>
+    <a href="mailto:scott+ghioblog@hurst.systems" class="btn btn--danger">Email</a><br></p>
+</article>
+			</div>
+		</section>
+	</div>
+</div>
+</div>
+		</div>
+	</div><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/site.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script><script src="https://twemoji.maxcdn.com/2/twemoji.min.js?2.6"></script>
+
+
+	<script>
+		window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+		ga('create', 'UA-121996036-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+	<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script id="dsq-count-scr" src="//hurst-systems.disqus.com/count.js" async></script>
+
+
+<script>
+	(function () {
+	  console.log("Twemoji up and making stuff colourful!");
+	  for (var b = document.getElementsByClassName("twemoji"), a = 0; a < b.length; a++) {
+		twemoji.parse(b[a]);
+	  }
+	})();
+</script>
+
+</body>
+</html>

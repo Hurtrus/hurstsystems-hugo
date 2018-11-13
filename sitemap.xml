@@ -1,87 +1,95 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://hurst.systems/</loc>
-  <lastmod>2018-10-25T03:43:16+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://hurst.systems/blog/</loc>
-  <lastmod>2018-10-25T03:43:16+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://hurst.systems/about/</loc>
-  <lastmod>2018-10-25T03:43:16+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://hurst.systems/blog/index.html</loc>
-  <lastmod>2018-10-25T03:43:16+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://hurst.systems/blog/What-is-Plaster/</loc>
-  <lastmod>2018-10-25T03:43:16+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://hurst.systems/blog/PowerShell-Pester-Notes/</loc>
-  <lastmod>2018-10-25T03:43:16+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://hurst.systems/blog/PowerShell-Error-Handling/</loc>
-  <lastmod>2018-10-25T03:43:16+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://hurst.systems/blog/PowerShell-Advanced-Functions/</loc>
-  <lastmod>2018-10-25T03:43:16+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://hurst.systems/blog/PowerShell-Adding-Whatif-and-Confirm/</loc>
-  <lastmod>2018-10-25T03:43:16+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://hurst.systems/blog/PowerShell-Notes/</loc>
-  <lastmod>2018-10-25T03:43:16+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://hurst.systems/blog/Dark-Theme-Font-Changes/</loc>
-  <lastmod>2018-10-25T03:43:16+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://hurst.systems/blog/Dark-Theme-Setting-Changes/</loc>
-  <lastmod>2018-10-25T03:43:16+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://hurst.systems/blog/TwitterCards-GitHub-Ruby-Jekyll/</loc>
-  <lastmod>2018-10-25T03:43:16+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://hurst.systems/blog/Array-of-SunShine/</loc>
-  <lastmod>2018-10-25T03:43:16+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://hurst.systems/blog/The-Adventure-Begins/</loc>
-  <lastmod>2018-10-25T03:43:16+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-
-
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://hurst.systems/posts/powershell-adding-whatif-and-confirm/</loc>
+    <lastmod>2018-10-23T10:29:23-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hurst.systems/posts/powershell-error-handling/</loc>
+    <lastmod>2018-10-03T10:29:23-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hurst.systems/posts/powershell-advanced-functions/</loc>
+    <lastmod>2018-10-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hurst.systems/posts/powershell-notes/</loc>
+    <lastmod>2018-10-04T11:29:23-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hurst.systems/posts/powershell-pester-notes/</loc>
+    <lastmod>2018-09-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hurst.systems/posts/twittercards/</loc>
+    <lastmod>2018-07-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hurst.systems/posts/the-adventure-begins/</loc>
+    <lastmod>2018-07-10T10:29:23-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hurst.systems/404/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hurst.systems/about/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hurst.systems/tags/blog/</loc>
+    <lastmod>2018-07-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hurst.systems/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hurst.systems/</loc>
+    <lastmod>2018-10-23T10:29:23-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hurst.systems/posts/</loc>
+    <lastmod>2018-10-23T10:29:23-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hurst.systems/tags/powershell/</loc>
+    <lastmod>2018-10-23T10:29:23-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hurst.systems/categories/powershell/</loc>
+    <lastmod>2018-10-23T10:29:23-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hurst.systems/tags/</loc>
+    <lastmod>2018-07-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hurst.systems/tags/twitter/</loc>
+    <lastmod>2018-07-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
 </urlset>

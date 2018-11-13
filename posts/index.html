@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<title>
+	Archive
+</title><style>
+body {
+	display: block;
+	--colorBG: "#40e0d0, #ff8c00, #ff0080";
+		background-image: var(--bgImage) !important;
+	
+}
+
+body, body.pushable {
+	background-repeat: no-repeat;
+  	background-attachment: fixed;
+  	background-size: cover !important;
+}
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="author" content="Scott Hurst" />
+	<meta name="description" content="" />
+<meta name="generator" content="Hugo 0.51" />
+
+<link rel="shortcut icon" href="/img/favicon.ico">
+
+<link rel="alternate" type="application/rss+xml" href="https://hurst.systems/posts/index.xml" title="Hurst Systems" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+<style>
+body.pushable {
+	display: block;
+		background-image: var(--bgImage) !important;
+	 ;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="/css/site.css"><link rel="stylesheet" type="text/css" href="/css/highlight.css">
+<script>
+	var colorBG =  null 
+	var enabledPost =  false 
+	var isMobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) )
+	console.log("The client device is a "+(isMobile?"mobile":"PC")+".")
+</script>
+</head>
+<body><script>
+var prevBgIndex = 0;
+var bodyBgSwitchIndex = 0;
+		var bgImage = "url(" + "/img/postImages/pwsh.jpeg" + ")";
+	
+	console.log("Current background: " + bgImage.substring(bgImage.indexOf("bg"), bgImage.length));
+	document.body.style.setProperty('--blurEff', null );
+	document.body.style.setProperty('--bgImage', bgImage);
+
+	function getRandomInt(min, max) {
+	  min = Math.ceil(min);
+	  max = Math.floor(max);
+	  var random;
+	  while (1) {
+	    random = Math.floor(Math.random() * (max - min)) + min;
+	    if (random !== prevBgIndex) {
+	      prevBgIndex = random;
+	      break;
+	    }
+	  }
+	  return random;
+	}
+
+	function connect(arr) {
+	  var str = '';
+	  for (var i = 0; i < arr.length; i++) {
+	    if (i !== arr.length - 1) {
+	      str += arr[i] + ', ';
+	    } else {
+	      str += arr[i];
+	    }
+	  }
+	  return str;
+	}
+</script><div class="blur-overlay"></div><div id="sidebar" class="ui sidebar inverted vertical menu">
+	<section id="author" class="ui top attached center aligned inverted segment"><div class="ui small circular image">
+		<img src="/img/Profile/Scott_Hurst_Systems.png">
+</div>
+<h3 class="ui header">Scott Hurst
+	<div class="sub header">Server Engineer, PowerShell Enthusiast, Gamer, wannabe programmer.</div>
+</h3>
+</section><section class="ui attached center aligned inverted segment sidebar-dream-tags">
+
+	<a class="ui label purple " href="/tags/blog" title="blog">blog</a>
+
+	<a class="ui label brown " href="/tags/powershell" title="powershell">powershell</a>
+
+	<a class="ui label teal " href="/tags/twitter" title="twitter">twitter</a>
+
+</section>
+	<section class="ui attached inverted segment sidebar-dream-categories both flexbox">
+		<div class="ui inverted accordion">
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/powershell">powershell</a>
+</div>
+<div class="content">
+
+	<a class="item" href="https://hurst.systems/posts/powershell-adding-whatif-and-confirm/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>PowerShell - Adding WhatIf and Confirm</p>
+		</div>
+	</a>
+
+	<a class="item" href="https://hurst.systems/posts/powershell-error-handling/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>PowerShell - Error Handling</p>
+		</div>
+	</a>
+
+	<a class="item" href="https://hurst.systems/posts/powershell-advanced-functions/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>PowerShell - Advanced Functions</p>
+		</div>
+	</a>
+
+	<a class="item" href="https://hurst.systems/posts/powershell-notes/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>PowerShell Notes</p>
+		</div>
+	</a>
+
+	<a class="item" href="https://hurst.systems/posts/powershell-pester-notes/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>PowerShell - Pester Notes</p>
+		</div>
+	</a>
+
+	<a class="item" href="https://hurst.systems/posts/the-adventure-begins/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>The Adventure Begins</p>
+		</div>
+	</a>
+
+</div>
+
+</div>
+	</section>
+	
+	<section id="footer" class="ui bottom attached center aligned inverted segment">
+
+<p>© 2018 Hurst Systems</p>
+
+
+
+<p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> </p></section>
+</div>
+<div class="pusher">
+		<div class="flipper">
+			<div class="front">
+	
+	
+	<nav class="ui top secondary menu bar">
+	<div class="item">
+		<i class="inverted big link bullseye icon dream-flip-toggle" title="About Me"></i>
+	</div>
+<div class="item">
+			<a href="/">
+				<i class="inverted big link home icon" title="Home"></i>
+			</a>
+		</div>
+	<div class="item">
+			<a href="/tags">
+				<i class="inverted big link tags icon" title="All Tags"></i>
+			</a>
+		</div>
+	<div class="item">
+			<a href="/categories">
+				<i class="inverted big link cubes icon" title="All Categories"></i>
+			</a>
+    	</div>
+	
+	
+
+	
+	<div class="item right">
+		<a href="/posts/index.xml">
+			<i class="inverted big link rss icon" title="RSS Feed"></i>
+		</a>
+	</div>
+	
+</nav>
+
+
+<div class="ui centered grid">
+	<div class="sixteen wide mobile fifteen wide tablet four wide computer column">
+		<div class="ui inverted accordion">
+	<div id="header" class="ui inverted segment column box">
+		<header id="author" class="ui top attached center aligned inverted segment"><div class="ui small circular image">
+		<img src="/img/Profile/Scott_Hurst_Systems.png">
+</div>
+<h3 class="ui header">Scott Hurst
+	<div class="sub header">Server Engineer, PowerShell Enthusiast, Gamer, wannabe programmer.</div>
+</h3>
+</header>
+		<div class="active title header-title"><div id="tag-category-pop" class="ui red right corner label">
+				<i class="hand point icon up"title="Click this to pop tags and categories"></i>
+			</div></div>
+		<div id="tag-category" class="active content"><section class="ui attached center aligned inverted segment dream-tags none flexbox">
+
+	<a class="ui label olive " href="/tags/blog" title="blog">blog</a>
+
+	<a class="ui label orange " href="/tags/powershell" title="powershell">powershell</a>
+
+	<a class="ui label red " href="/tags/twitter" title="twitter">twitter</a>
+
+</section><section class="ui attached inverted segment dream-categories both flexbox">
+				<div class="inverted accordion">
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/powershell">powershell</a>
+</div>
+<div class="content">
+
+	<a class="item" href="https://hurst.systems/posts/powershell-adding-whatif-and-confirm/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>PowerShell - Adding WhatIf and Confirm</p>
+		</div>
+	</a>
+
+	<a class="item" href="https://hurst.systems/posts/powershell-error-handling/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>PowerShell - Error Handling</p>
+		</div>
+	</a>
+
+	<a class="item" href="https://hurst.systems/posts/powershell-advanced-functions/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>PowerShell - Advanced Functions</p>
+		</div>
+	</a>
+
+	<a class="item" href="https://hurst.systems/posts/powershell-notes/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>PowerShell Notes</p>
+		</div>
+	</a>
+
+	<a class="item" href="https://hurst.systems/posts/powershell-pester-notes/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>PowerShell - Pester Notes</p>
+		</div>
+	</a>
+
+	<a class="item" href="https://hurst.systems/posts/the-adventure-begins/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>The Adventure Begins</p>
+		</div>
+	</a>
+
+</div>
+
+</div>
+			</section></div>
+		<footer class="ui bottom attached center aligned inverted segment">
+
+<p>© 2018 Hurst Systems</p>
+
+
+
+<p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> </p></footer>
+	</div>
+</div>
+
+	</div>
+	<div class="sixteen wide mobile fifteen wide tablet eleven wide computer column post-list">
+		<div class="ui inverted segment">
+			<h2 class="ui header">Archive<hr>
+				<div class="ui grey sub header"></div>
+			</h2>
+			
+			<h3 class="ui header">2018</h3>
+			<ul>
+				
+				<li><a href="https://hurst.systems/posts/powershell-adding-whatif-and-confirm/">PowerShell - Adding WhatIf and Confirm</a></li>
+				
+				<li><a href="https://hurst.systems/posts/powershell-advanced-functions/">PowerShell - Advanced Functions</a></li>
+				
+				<li><a href="https://hurst.systems/posts/powershell-notes/">PowerShell Notes</a></li>
+				
+				<li><a href="https://hurst.systems/posts/powershell-error-handling/">PowerShell - Error Handling</a></li>
+				
+				<li><a href="https://hurst.systems/posts/powershell-pester-notes/">PowerShell - Pester Notes</a></li>
+				
+				<li><a href="https://hurst.systems/posts/twittercards/">Add Twitter Cards to Blog Tweets</a></li>
+				
+				<li><a href="https://hurst.systems/posts/the-adventure-begins/">The Adventure Begins</a></li>
+				
+			</ul>
+			
+		</div>
+	</div>
+</div>
+
+			</div>
+			<div class="back">
+<nav class="ui top secondary menu bar">
+	<div class="item">
+		<i class="inverted big link bullseye icon dream-flip-toggle" title="About Me"></i>
+	</div>
+
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+	
+	
+	
+		
+		
+		<div class="item">
+			<a href="https://github.com/Hurtrus" target="	_blank">
+				<i id="ico" class="inverted big link github icon" title="GitHub"></i>
+			</a>
+		</div>
+		
+	
+		
+		
+		<div class="item">
+			<a href="mailto:scott&#43;blogposts@hurst.systems" target="	_blank">
+				<i id="ico" class="inverted big link mail icon" title="Email"></i>
+			</a>
+		</div>
+		
+	
+		
+		
+		<div class="item">
+			<a href="https://twitter.com/The_Scott_Hurst" target="	_blank">
+				<i id="ico" class="inverted big link twitter icon" title="Twitter"></i>
+			</a>
+		</div>
+		
+	
+		
+		
+	
+		
+		
+	
+		
+		
+		<div class="item">
+			<a href="https://www.linkedin.com/in/brandonhurst" target="	_blank">
+				<i id="ico" class="inverted big link linkedin icon" title="LinkedIn"></i>
+			</a>
+		</div>
+		
+	
+		
+		
+	
+		
+		
+	
+		
+		
+	
+
+	
+	<div class="item right">
+		<a href="/posts/index.xml">
+			<i class="inverted big link rss icon" title="RSS Feed"></i>
+		</a>
+	</div>
+	
+</nav>
+
+<div class="ui centered grid about">
+	<div class="sixteen wide mobile fifteen wide tablet fifteen wide computer column about">
+		<section class="ui stacked segments">
+			<div class="ui inverted segment">
+				<article class="twemoji"><h1>Just the typical about me page</h1>
+
+<hr />
+
+<p><a href="https://www.techtronit.com">
+  <img src="/img/postImages/powershell_org_Verified.png" alt="HTML tutorial" style="border:0;">
+</a><br></p>
+
+<p>Published videos
+    <p>List of videos I have created: <a href="https://www.techsnips.io/contributors/scott-hurst/" rel="noopener noreferrer" target="_blank">TechSnips</a><br></p></p>
+
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/W7bjX55FLCk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br></p>
+
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/j84Xd5nxCZ0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br></p>
+
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/FUOeyxwePoY?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br></p>
+
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/ZfLjTzwpdUA?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br></p>
+
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/ZqmI7NfqXOU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br></p>
+
+<p>Published Blog Posts on other websites:<br>
+<a href="https://blog.techsnips.io/how-to-managed-distributed-file-system-dfs-links-with-powershell/" rel="noopener noreferrer" target="_blank">How to Managed Distributed File System (DFS) Links with PowerShell</a></p>
+
+<p>Find out more about Scott:<br>
+    <a href="https://twitter.com/The_Scott_Hurst" class="btn btn--twitter">Twitter</a><br>
+    <a href="https://www.linkedin.com/in/brandonhurst" class="btn btn--linkedin">LinkedIn</a><br>
+    <a href="https://github.com/hurtrus" class="btn btn--light-outline">GitHub</a><br>
+    <a href="mailto:scott+ghioblog@hurst.systems" class="btn btn--danger">Email</a><br></p>
+</article>
+			</div>
+		</section>
+	</div>
+</div>
+</div>
+		</div>
+	</div><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/site.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script><script src="https://twemoji.maxcdn.com/2/twemoji.min.js?2.6"></script>
+
+
+	<script>
+		window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+		ga('create', 'UA-121996036-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+	<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script id="dsq-count-scr" src="//hurst-systems.disqus.com/count.js" async></script>
+
+
+<script>
+	(function () {
+	  console.log("Twemoji up and making stuff colourful!");
+	  for (var b = document.getElementsByClassName("twemoji"), a = 0; a < b.length; a++) {
+		twemoji.parse(b[a]);
+	  }
+	})();
+</script>
+
+</body>
+</html>

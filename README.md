@@ -1,2 +1,0 @@
-# hurstsystems-hugo
-hurstsystems-hugo

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on Hurst Systems</title>
+    <link>https://hurst.systems/tags/blog/</link>
+    <description>Recent content in Blog on Hurst Systems</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 12 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hurst.systems/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Add Twitter Cards to Blog Tweets</title>
+      <link>https://hurst.systems/posts/twittercards/</link>
+      <pubDate>Thu, 12 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://hurst.systems/posts/twittercards/</guid>
+      <description>I&amp;rsquo;m really late to the blog game, and never really did much but lurk on Twitter. So when I started to blog, and then promoted the posts on Twitter, I noticed it was just an ugly URL link. It didn&amp;rsquo;t stand out at all, in fact it was&amp;hellip; boring&amp;hellip; and this was BEFORE you got to my rambling. So how do all these Tweets end up with such pretty pictures attached to them?</description>
+    </item>
+    
+  </channel>
+</rss>

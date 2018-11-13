@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Powershell on Hurst Systems</title>
+    <link>https://hurst.systems/tags/powershell/</link>
+    <description>Recent content in Powershell on Hurst Systems</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 23 Oct 2018 10:29:23 -0500</lastBuildDate>
+    
+	<atom:link href="https://hurst.systems/tags/powershell/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>PowerShell - Adding WhatIf and Confirm</title>
+      <link>https://hurst.systems/posts/powershell-adding-whatif-and-confirm/</link>
+      <pubDate>Tue, 23 Oct 2018 10:29:23 -0500</pubDate>
+      
+      <guid>https://hurst.systems/posts/powershell-adding-whatif-and-confirm/</guid>
+      <description>So I planned to write a blog post about how to add WhatIf and Confirm to your PowerShell code and began to do research on the topic. I found that a bunch of awesome blogs that already had covered this topic, so I grabbed some information about each and threw it into this post. I will clean this up and make it more readable at a later time, just wanted to get this into my site so that I could find it and use it when needed.</description>
+    </item>
+    
+    <item>
+      <title>PowerShell - Error Handling</title>
+      <link>https://hurst.systems/posts/powershell-error-handling/</link>
+      <pubDate>Wed, 03 Oct 2018 10:29:23 -0500</pubDate>
+      
+      <guid>https://hurst.systems/posts/powershell-error-handling/</guid>
+      <description>PowerShell - Error Handling Try Catch and Finally
+Try When we need to watch a block of our code for errors, our new best friend is the try statement. Ever dillagent, try knows the danger that looms and is looking out for you when a &amp;ldquo;terminating&amp;rdquo; error occurs.
+We can also tell try to be on the lookout for other types of errors, those errrors that don&amp;rsquo;t stop the function in its tracks (also known as Non-Terminating), but may cause problems later in our code because this function was unable to be successfully executed.</description>
+    </item>
+    
+    <item>
+      <title>PowerShell - Advanced Functions</title>
+      <link>https://hurst.systems/posts/powershell-advanced-functions/</link>
+      <pubDate>Sat, 13 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://hurst.systems/posts/powershell-advanced-functions/</guid>
+      <description>Advanced Functions when giving a default parameter use
+1 2 3 4 5 6 7  [ValidateNotNullOrEmpty()] [CmdletBinding()] param ( [ValidateNotNullOrEmpty()] [string[] ] $Computername = $env:COMPUTERNAME )   Standard and Advanced Functions
+PowerShell Advanced Functions: Can we build them better? With parameter validation, yes we can!
+About Functions Advanced on PSCore
+About Functions Advanced Methods
+About Functions Advanced Parameters
+Which leads to learning how to use Plaster What is Plaster</description>
+    </item>
+    
+    <item>
+      <title>PowerShell Notes</title>
+      <link>https://hurst.systems/posts/powershell-notes/</link>
+      <pubDate>Thu, 04 Oct 2018 11:29:23 -0500</pubDate>
+      
+      <guid>https://hurst.systems/posts/powershell-notes/</guid>
+      <description>Notes about various things that I wanted to find again later, or a few things that would be useful to others. From &amp;ldquo;Free eBooks&amp;rdquo; to links about HashTables and Arrays, there will not be any rhyme or reason to this post. Enjoy.
+Free eBooks: Historical Trend Reports in Powershell
+Where and Foreach Methods
+PowerShell Advanced Functions
+Kevin Marquette on PowerShell Theory
+================
+Automatically Store Last Output
+================
+Hashtables Everything you wanted to know about HashTables</description>
+    </item>
+    
+    <item>
+      <title>PowerShell - Pester Notes</title>
+      <link>https://hurst.systems/posts/powershell-pester-notes/</link>
+      <pubDate>Sun, 23 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://hurst.systems/posts/powershell-pester-notes/</guid>
+      <description>Pester Time to learn Pester. Not so much a blog post as it is a reading/reference list. What is Pester? &amp;ldquo;Pester is the ubiquitous test and mock framework for PowerShell&amp;rdquo; or in other words, tests written to test the functions you have created without actually running those commands.
+Are you asking yourself &amp;ldquo;why bother? just run the code and see if it works?&amp;rdquo; Yeah me too, but seems like everyone is doing it&amp;hellip; so might as well jump off a bridge also, hopefully by the end I will see its value.</description>
+    </item>
+    
+    <item>
+      <title>The Adventure Begins</title>
+      <link>https://hurst.systems/posts/the-adventure-begins/</link>
+      <pubDate>Tue, 10 Jul 2018 10:29:23 -0500</pubDate>
+      
+      <guid>https://hurst.systems/posts/the-adventure-begins/</guid>
+      <description>In the beginning&amp;hellip;
+This blog is probably well over due, if for no other reason than just keeping track of the things I learn in PowerShell so that I don&amp;rsquo;t forget them later. This &amp;ldquo;blog&amp;rdquo; might even work great in keeping track of those little details that make different commands work..just so&amp;hellip; I might even remember that I wrote down those little gotchas in a place to remind myself.</description>
+    </item>
+    
+  </channel>
+</rss>
